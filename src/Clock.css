@@ -3,7 +3,9 @@
   width: 100vw;
   height: 100vh;
   color: white;
+  text-shadow: -1px -1px 10px black;
   background-color: black;
+  transition: background-color 0.3s;
 }
 
 .clock {
