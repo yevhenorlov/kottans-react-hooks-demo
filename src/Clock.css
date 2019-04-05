@@ -1,0 +1,12 @@
+.clock__wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: black;
+}
+
+.clock {
+  margin: auto;
+  font-size: 10vw;
+}
