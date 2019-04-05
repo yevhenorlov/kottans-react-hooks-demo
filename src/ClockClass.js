@@ -4,31 +4,30 @@ import './Clock.css'
 class Clock extends Component {
   constructor(props) {
     super(props)
-    this.state = { time: new Date(), hue: null }
+    this.state = { time: new Date(), hue: this.generateRandom8Bit() }
   }
   tick() {
     this.setState({ time: new Date() })
   }
 
-  generateRandomHue() {
-    const hue = Math.floor(Math.random() * 255)
-    this.setState({ hue })
+  generateRandom8Bit() {
+    return Math.floor(Math.random() * 255)
   }
 
   componentDidMount() {
+    document.title = this.state.time.toLocaleTimeString()
+
     this.timerId = setInterval(() => {
       this.tick()
     }, 1000)
+
     this.colorTimerId = setInterval(() => {
-      this.generateRandomHue()
+      this.setState({ hue: this.generateRandom8Bit() })
     }, 3000)
   }
 
   componentDidUpdate() {
-    console.log({
-      'current time': this.state.time.toLocaleTimeString(),
-      'current hue': this.state.hue
-    })
+    document.title = this.state.time.toLocaleTimeString()
   }
 
   componentWillUnmount() {
