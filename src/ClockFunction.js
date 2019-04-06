@@ -3,7 +3,7 @@ import './Clock.css'
 
 const Clock = props => {
   const [time, setTime] = useState(new Date())
-  const [hue, setHue] = useState(generateRandom8Bit())
+  const [hue, setHue] = useState(generateRandomDegree())
   const [timerId, setTimerId] = useState()
   const [colorTimerId, setColorTimerId] = useState()
 
@@ -11,8 +11,8 @@ const Clock = props => {
     setTime(new Date())
   }
 
-  function generateRandom8Bit() {
-    return Math.floor(Math.random() * 256)
+  function generateRandomDegree() {
+    return Math.floor(Math.random() * 359)
   }
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Clock = props => {
   useEffect(() => {
     setColorTimerId(
       setInterval(() => {
-        setHue(generateRandom8Bit())
+        setHue(generateRandomDegree())
       }, 3000)
     )
     return () => {

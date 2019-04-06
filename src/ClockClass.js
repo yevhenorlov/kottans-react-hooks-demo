@@ -4,14 +4,14 @@ import './Clock.css'
 class Clock extends Component {
   constructor(props) {
     super(props)
-    this.state = { time: new Date(), hue: this.generateRandom8Bit() }
+    this.state = { time: new Date(), hue: this.generateRandomDegree() }
   }
   tick() {
     this.setState({ time: new Date() })
   }
 
-  generateRandom8Bit() {
-    return Math.floor(Math.random() * 255)
+  generateRandomDegree() {
+    return Math.floor(Math.random() * 359)
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class Clock extends Component {
     }, 1000)
 
     this.colorTimerId = setInterval(() => {
-      this.setState({ hue: this.generateRandom8Bit() })
+      this.setState({ hue: this.generateRandomDegree() })
     }, 3000)
   }
 
